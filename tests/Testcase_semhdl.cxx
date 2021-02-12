@@ -1,7 +1,6 @@
 #include "semhdl.hpp"
 #include <catch2/catch.hpp>
 #include <chrono>
-#include <semaphore.h>
 #include <thread>
 
 using namespace std::chrono_literals;
