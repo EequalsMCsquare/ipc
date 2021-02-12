@@ -6,15 +6,15 @@
 
 namespace ipc
 {
-  class IPCExcept : std::exception
-  {
-  private:
-    std::string _M_What;
+    class IPCExcept : std::exception
+    {
+    private:
+        char _M_What[256];
 
-  public:
-    IPCExcept(const IPCErrc ec);
-    IPCExcept(const std::error_code ec);
+    public:
+        IPCExcept(const IPCErrc ec);
+        IPCExcept(const std::error_code ec);
 
-    const char* what() const noexcept final override;
-  }
+        const char* what() const noexcept final override;
+    };
 }
