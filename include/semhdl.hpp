@@ -2,7 +2,6 @@
 
 #include <atomic>
 #include <chrono>
-#include <semaphore.h>
 #include <string_view>
 
 #include "common.hpp"
