@@ -83,14 +83,14 @@ public:
    * @param nbytes
    * @param error_code
    */
-  shmhdl(std::string_view name, const shmsz_t nbytes, std::error_code &ec);
+  shmhdl(std::string_view name, const shmsz_t nbytes, std::error_code &ec) noexcept;
   shmhdl(std::string_view name, const shmsz_t nbytes);
   /**
    * @brief attach to a existing shared memory object
    *
    * @param name
    */
-  shmhdl(std::string_view name, std::error_code &ec);
+  shmhdl(std::string_view name, std::error_code &ec) noexcept;
   shmhdl(std::string_view name);
   ~shmhdl();
 
@@ -150,7 +150,7 @@ public:
    * @brief Win32 API's native shared memory object HANDLE
    *
    */
-  HANDLE native_handle() noexcept
+  HANDLE native_handle() const noexcept;
 #endif
 
 #ifdef __POSIX__
