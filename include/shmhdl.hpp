@@ -27,6 +27,7 @@ enum class SHM_STATUS : size_t {
 };
 
 class shmhdl {
+
 private:
   /**
    * @brief shared memory meta info
@@ -83,14 +84,17 @@ public:
    * @param error_code
    */
   shmhdl(std::string_view name, const shmsz_t nbytes, std::error_code &ec);
+  shmhdl(std::string_view name, const shmsz_t nbytes);
   /**
    * @brief attach to a existing shared memory object
    *
    * @param name
    */
   shmhdl(std::string_view name, std::error_code &ec);
-  shmhdl(const shmhdl &) = delete;
+  shmhdl(std::string_view name);
   ~shmhdl();
+
+  shmhdl(const shmhdl &) = delete;
 
   /**
    * @brief map shared memory object into current process
@@ -100,18 +104,21 @@ public:
    * @return void*
    */
   void *map(std::error_code &ec) noexcept;
+  void *map();
   /**
    * @brief unmap shared memory object from current process.
    *
    * @param ec
    */
   void unmap(std::error_code &ec) noexcept;
+  void unmap();
   /**
    * @brief unmap current shared memory object and remove the file in /dev/shm
    *
    * @param ec
    */
   void unlink(std::error_code &ec) noexcept;
+  void unlink();
 
   /**
    * @brief size of shared memory object (meta exclude)
