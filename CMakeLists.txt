@@ -23,7 +23,7 @@ target_include_directories(ipc
   PUBLIC "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>"
   PUBLIC "$<INSTALL_INTERFACE:include/ipc>"
 )
-target_sources(ipc PRIVATE ${SRC})
+target_sources(ipc PRIVATE ${SRC} ${CMAKE_CURRENT_SOURCE_DIR}/src/ec.cxx ${CMAKE_CURRENT_SOURCE_DIR}/src/except.cxx)
 target_compile_features(ipc PUBLIC cxx_std_17)
 target_compile_definitions(ipc PUBLIC ${PLATFORM})
 if (NOT WIN32)
