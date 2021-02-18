@@ -24,7 +24,9 @@ namespace ipc {
 enum class O_FLAGS {
   CREATE_ONLY = O_RDWR | O_CREAT | O_EXCL,
   OPEN_ONLY = O_RDWR,
-  CREATE_OR_OPEN = O_RDWR | O_CREAT
+  CREATE_OR_OPEN = O_RDWR | O_CREAT,
+  WRITE_ONLY = O_WRONLY,
+  READ_ONLY = O_RDONLY,
 };
 
 // shared memory object permission
