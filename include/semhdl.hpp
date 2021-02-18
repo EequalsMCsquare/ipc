@@ -6,6 +6,10 @@
 
 #include "common.hpp"
 
+#ifdef __POSIX__
+#include <semaphore.h>
+#endif
+
 namespace ipc {
 
 class semhdl {
