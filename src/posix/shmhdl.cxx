@@ -14,7 +14,8 @@ void shmhdl::unmap_meta(std::error_code &ec) noexcept {
 }
 
 shmhdl::shmhdl(std::string_view name, const shmsz_t nbytes,
-               std::error_code &ec) {
+               std::error_code &ec) noexcept{
+                 
   ec.clear();
   // create a shared memory object
   int __fd = shm_open(name.data(), (int)O_FLAGS::CREATE_ONLY, (int)PERM::ALL);
@@ -96,7 +97,7 @@ shmhdl::shmhdl(std::string_view name, const shmsz_t nbytes) {
   this->addr_ = nullptr;
 }
 
-shmhdl::shmhdl(std::string_view name, std::error_code &ec) {
+shmhdl::shmhdl(std::string_view name, std::error_code &ec) noexcept {
   ec.clear();
   int __fd = shm_open(name.data(), static_cast<int>(O_FLAGS::OPEN_ONLY),
                       static_cast<int>(PERM::ALL));
